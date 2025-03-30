@@ -1,9 +1,13 @@
-import { readFile, writeFile, appendFile } from 'node:fs/promises';
+// import { readFile } from 'node:fs/promises';
+import { readFile as readFileSync } from 'node:fs';
 
-const data = await readFile('./data.json', 'utf8');
+// const data = await readFile('./data.json', 'utf8');
+// console.log(data);
 
-// await writeFile("./data.json", "alex-john", "utf8");
+readFileSync('./data.json', 'utf8', (error, data) => {
+  if (error) {
+    console.log(error.message);
+  }
 
-await appendFile('./data.json', 'alex-john', 'utf8');
-
-console.log(data);
+  console.log(data);
+});
