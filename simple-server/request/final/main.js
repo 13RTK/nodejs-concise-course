@@ -7,15 +7,20 @@ const server = createServer(async (request, response) => {
   // response.end('Hello World!\n');
   // ==================================================
   // Response HTML
-  // response.writeHead(200, { 'Content-Type': 'text/html' });
-  // const htmlFile = await readFile('./index.html', 'utf-8');
-  // response.end(htmlFile);
+  if (request.url === '/') {
+    response.writeHead(200, { 'Content-Type': 'text/html' });
+    const htmlFile = await readFile('./index.html', 'utf-8');
+    response.end(htmlFile);
+  }
   // ==================================================
   // Response JSON
-  const jsonFile = await readFile('./data.json', 'utf-8');
 
-  // response.writeHead(200, { 'Content-Type': 'application/json' });
-  response.end(jsonFile);
+  if (request.url === '/data') {
+    const jsonFile = await readFile('./data.json', 'utf-8');
+
+    response.writeHead(200, { 'Content-Type': 'application/json' });
+    response.end(jsonFile);
+  }
 });
 
 // Port, hostname(IP Address)
