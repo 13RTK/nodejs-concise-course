@@ -1,0 +1,129 @@
+[
+  {
+    "groupName": "Red Velvet",
+    "memberCount": 5,
+    "members": [
+      {
+        "name": "Seulgi",
+        "position": "Main Dancer, Sub Rapper",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Kang_Seulgi_LONGCHAMP_2024.jpg/330px-Kang_Seulgi_LONGCHAMP_2024.jpg"
+      },
+      {
+        "name": "Yeri",
+        "position": "Sub Vocalist, Rapper, Maknae (youngest member)",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/240511_Red_Velvet_Yeri.jpg/330px-240511_Red_Velvet_Yeri.jpg"
+      },
+      {
+        "name": "Irene",
+        "position": "Leader, Lead Rapper, Lead Dancer, Visual",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/250320_%EB%A0%88%EB%93%9C%EB%B2%A8%EB%B2%B3_Irene_UGG_Photo_Call.jpg/500px-250320_%EB%A0%88%EB%93%9C%EB%B2%A8%EB%B2%B3_Irene_UGG_Photo_Call.jpg"
+      },
+      {
+        "name": "Wendy",
+        "position": "Man Vocalist",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Red_Velvet_Wendy_2025-03-20.png/330px-Red_Velvet_Wendy_2025-03-20.png"
+      },
+      {
+        "name": "Joy",
+        "position": "Lead Rapper, Sub Vocalist",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/240719_Red_Velvet_Joy.jpg/330px-240719_Red_Velvet_Joy.jpg"
+      }
+    ],
+    "isDefault": true,
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/%EB%A0%88%EB%93%9C%EB%B2%A8%EB%B2%B3%28Red_Velvet%29_%EC%BC%80%EC%9D%B4%EC%BD%98_%EC%9E%AC%ED%8C%AC_2024_%EB%A0%88%EB%93%9C%EC%B9%B4%ED%8E%AB_KCON_JAPAN_2024_%281%29.jpg/500px-%EB%A0%88%EB%93%9C%EB%B2%A8%EB%B2%B3%28Red_Velvet%29_%EC%BC%80%EC%9D%B4%EC%BD%98_%EC%9E%AC%ED%8C%AC_2024_%EB%A0%88%EB%93%9C%EC%B9%B4%ED%8E%AB_KCON_JAPAN_2024_%281%29.jpg"
+  },
+  {
+    "groupName": "QWER",
+    "memberCount": 4,
+    "members": [
+      {
+        "name": "Chodan",
+        "position": "Leader, Drummer, Sub-vocalist",
+        "avatar": "https://i.mydramalist.com/jQ2BBJ_5c.jpg"
+      },
+      {
+        "name": "Magenta",
+        "position": "Bassist",
+        "avatar": "https://i.mydramalist.com/d0AXL0_5c.jpg"
+      },
+      {
+        "name": "Siyeon",
+        "position": "Main Vocalist, Guitarist",
+        "avatar": "https://i.mydramalist.com/jQ2BLz_5c.jpg"
+      },
+      {
+        "name": "Hina",
+        "position": "Guitarist, Keyboardist, Maknae",
+        "avatar": "https://i.mydramalist.com/2w7eKV_5c.jpg"
+      }
+    ],
+    "isDefault": false,
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/QWER_Southkorean_band.png/500px-QWER_Southkorean_band.png"
+  },
+  {
+    "groupName": "ITZY",
+    "memberCount": 5,
+    "members": [
+      {
+        "name": "Yeji",
+        "position": "Leader, Main Dancer, Lead Vocalist, Sub Rapper",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Hwang_Yeji_02.jpg/330px-Hwang_Yeji_02.jpg"
+      },
+      {
+        "name": "Lia",
+        "position": "Main Vocalist",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/ITZY%27s_Lia_for_DOLCE_%26_GABANA_2024_02.jpg/330px-ITZY%27s_Lia_for_DOLCE_%26_GABANA_2024_02.jpg"
+      },
+      {
+        "name": "Ryujin",
+        "position": "Main Rapper, Lead Dancer, Sub Vocalist, Center",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/241023_ITZY_Ryujin.jpg/330px-241023_ITZY_Ryujin.jpg"
+      },
+      {
+        "name": "Chaeryeong",
+        "position": "Main Dancer, Sub Vocalist, Sub Rapper",
+        "avatar": "https://i.mydramalist.com/jQjX1r_5c.jpg"
+      },
+      {
+        "name": "Yuna",
+        "position": "Lead Rapper, Lead Dancer, Sub Vocalist, Visual, Maknae",
+        "avatar": "https://www.j-14.com/wp-content/uploads/2023/12/itzy-yuna.jpg?fit=1000%2C667&quality=86&strip=all"
+      }
+    ],
+    "isDefault": false,
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/ITZY_%28%EC%9E%88%EC%A7%80%29_180823.png/500px-ITZY_%28%EC%9E%88%EC%A7%80%29_180823.png"
+  },
+  {
+    "groupName": "(G)I-DLE",
+    "memberCount": 5,
+    "members": [
+      {
+        "name": "Soyeon",
+        "position": "Leader, Main Rapper, Main Dancer",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Jeon_Soyeon_photo_call_2024_03.jpg/330px-Jeon_Soyeon_photo_call_2024_03.jpg"
+      },
+      {
+        "name": "Miyeon",
+        "position": "Main Vocalist",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/%28G%29-idle%27s_Miyeon_%EC%A1%B0%EB%AF%B8%EC%97%B0_at_the_The_3rd_Blue_Dragon_Series_Awards_07.jpg/330px-%28G%29-idle%27s_Miyeon_%EC%A1%B0%EB%AF%B8%EC%97%B0_at_the_The_3rd_Blue_Dragon_Series_Awards_07.jpg"
+      },
+      {
+        "name": "Minnie",
+        "position": "Lead Vocalist",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/20250309_%28G%29I-dle_Minnie_Airport_Departure.jpg/330px-20250309_%28G%29I-dle_Minnie_Airport_Departure.jpg"
+      },
+      {
+        "name": "Yuqi",
+        "position": "Lead Dancer, Sub Vocalist, Sub Rapper",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/20230630_Song_Yu-qi.jpg/500px-20230630_Song_Yu-qi.jpg"
+      },
+      {
+        "name": "Shuhua",
+        "position": "Sub Vocalist, Visual, Maknae",
+        "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/%28G%29I-DLE%27s_Shuhua_on_June_2023_01_%28cropped%29.jpg/330px-%28G%29I-DLE%27s_Shuhua_on_June_2023_01_%28cropped%29.jpg"
+      }
+    ],
+    "isDefault": false,
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/20241130_%28G%29I-dle_MMA_2024_Red_Carpet.jpg/450px-20241130_%28G%29I-dle_MMA_2024_Red_Carpet.jpg"
+  }
+]

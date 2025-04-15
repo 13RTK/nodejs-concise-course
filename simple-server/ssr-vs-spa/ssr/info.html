@@ -4,8 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
   <body>
-    <h1>%NAME%</h1>
+    <main className="text-center">
+      <section className="mt-20">
+        <!-- GroupImage -->
+        <div className="avatar">
+          <div className="w-64 rounded">
+            <img src="%GroupImage%" />
+          </div>
+        </div>
+        <br />
+
+        <!-- MemberList -->
+        <ul className="list bg-base-100 rounded-box shadow-md w-1/2 mx-auto">
+          <li className="p-4 pb-2 text-xs opacity-60 tracking-wide"></li>
+
+          %MemberList%
+        </ul>
+      </section>
+    </main>
   </body>
 </html>
