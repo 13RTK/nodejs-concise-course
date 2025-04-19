@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 
 const server = createServer(async (req, res) => {
   // Get URL
+  // /hina
   const { url } = req;
 
   // Read data
