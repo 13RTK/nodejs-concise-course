@@ -1,0 +1,158 @@
+[
+  {
+    "name": "Irene",
+    "birthday": "1991-03",
+    "group": "Red Velvet",
+    "position": "Leader, Main Rapper, Lead Dancer, Sub Vocalist, Visual, Center"
+  },
+  {
+    "name": "Seulgi",
+    "birthday": "1994-10",
+    "group": "Red Velvet",
+    "position": "Main Dancer, Lead Vocalist"
+  },
+  {
+    "name": "Wendy",
+    "birthday": "1994-02",
+    "group": "Red Velvet",
+    "position": "Main Vocalist"
+  },
+  {
+    "name": "Joy",
+    "birthday": "1996-09",
+    "group": "Red Velvet",
+    "position": "Lead Rapper, Sub Vocalist"
+  },
+  {
+    "name": "Yeri",
+    "birthday": "1999-03",
+    "group": "Red Velvet",
+    "position": "Sub Vocalist, Sub Rapper, Maknae"
+  },
+  {
+    "name": "Yeji",
+    "birthday": "2000-05",
+    "group": "ITZY",
+    "position": "Leader, Main Dancer, Lead Vocalist, Sub Rapper"
+  },
+  {
+    "name": "Lia",
+    "birthday": "2000-07",
+    "group": "ITZY",
+    "position": "Main Vocalist, Sub Rapper"
+  },
+  {
+    "name": "Ryujin",
+    "birthday": "2001-04",
+    "group": "ITZY",
+    "position": "Main Rapper, Lead Dancer, Sub Vocalist, Center"
+  },
+  {
+    "name": "Chaeryeong",
+    "birthday": "2001-06",
+    "group": "ITZY",
+    "position": "Main Dancer, Sub Vocalist, Sub Rapper"
+  },
+  {
+    "name": "Yuna",
+    "birthday": "2003-12",
+    "group": "ITZY",
+    "position": "Lead Rapper, Lead Dancer, Sub Vocalist, Visual, Maknae"
+  },
+  {
+    "name": "Miyeon",
+    "birthday": "1997-01",
+    "group": "(G)I-DLE",
+    "position": "Main Vocalist, Visual"
+  },
+  {
+    "name": "Minnie",
+    "birthday": "1997-10",
+    "group": "(G)I-DLE",
+    "position": "Main Vocalist"
+  },
+  {
+    "name": "Soyeon",
+    "birthday": "1998-08",
+    "group": "(G)I-DLE",
+    "position": "Leader, Main Rapper, Sub Vocalist, Center"
+  },
+  {
+    "name": "Yuqi",
+    "birthday": "1999-09",
+    "group": "(G)I-DLE",
+    "position": "Lead Dancer, Sub Rapper, Sub Vocalist"
+  },
+  {
+    "name": "Shuhua",
+    "birthday": "2000-01",
+    "group": "(G)I-DLE",
+    "position": "Sub Vocalist, Visual, Maknae"
+  },
+  {
+    "name": "Chodan",
+    "birthday": "1998-11",
+    "group": "QWER",
+    "position": "Leader, Drummer, Sub Vocalist"
+  },
+  {
+    "name": "Magenta",
+    "birthday": "1997-06",
+    "group": "QWER",
+    "position": "Bassist, Sub Vocalist"
+  },
+  {
+    "name": "Hina",
+    "birthday": "2001-01",
+    "group": "QWER",
+    "position": "Guitarist, Keyboardist, Sub Vocalist"
+  },
+  {
+    "name": "Siyeon",
+    "birthday": "2000-05",
+    "group": "QWER",
+    "position": "Main Vocalist, Guitarist"
+  },
+  {
+    "name": "Eunha",
+    "birthday": "1997-05",
+    "group": "VIVIZ",
+    "position": "Main Vocalist"
+  },
+  {
+    "name": "SinB",
+    "birthday": "1998-06",
+    "group": "VIVIZ",
+    "position": "Main Dancer, Vocalist"
+  },
+  {
+    "name": "Umji",
+    "birthday": "1998-08",
+    "group": "VIVIZ",
+    "position": "Lead Dancer, Vocalist, Maknae"
+  },
+  {
+    "name": "Qri",
+    "birthday": "1986-12",
+    "group": "T-ara",
+    "position": "Leader, Vocalist, Visual"
+  },
+  {
+    "name": "Eunjung",
+    "birthday": "1988-12",
+    "group": "T-ara",
+    "position": "Lead Vocalist, Lead Rapper"
+  },
+  {
+    "name": "Hyomin",
+    "birthday": "1989-05",
+    "group": "T-ara",
+    "position": "Main Rapper, Lead Vocalist"
+  },
+  {
+    "name": "Jiyeon",
+    "birthday": "1993-06",
+    "group": "T-ara",
+    "position": "Main Dancer, Lead Vocalist, Visual, Maknae"
+  }
+]
