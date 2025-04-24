@@ -1,53 +1,24 @@
-import { useState, useEffect } from 'react';
 import { Button } from 'primereact/button';
 import { DataView } from 'primereact/dataview';
-import { Rating } from 'primereact/rating';
-import { Tag } from 'primereact/tag';
 import { classNames } from 'primereact/utils';
 
-import { ProductService } from '../service/ProductService';
+import { Todo } from '../types/Todo';
+import { ToastSeverity } from '../types/ToastSeverity';
 
-interface Product {
-  id: string;
-  code: string;
-  name: string;
-  description: string;
-  image: string;
-  price: number;
-  category: string;
-  quantity: number;
-  inventoryStatus: string;
-  rating: number;
-}
-
-export default function TodoList() {
-  const [products, setProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    ProductService.getProductsSmall().then((data) =>
-      setProducts(data.slice(0, 5))
-    );
-  }, []);
-
-  const getSeverity = (product: Product) => {
-    switch (product.inventoryStatus) {
-      case 'INSTOCK':
-        return 'success';
-
-      case 'LOWSTOCK':
-        return 'warning';
-
-      case 'OUTOFSTOCK':
-        return 'danger';
-
-      default:
-        return null;
-    }
-  };
-
-  const itemTemplate = (product: Product, index: number) => {
+export default function TodoList({
+  showToast,
+  todos,
+  deleteTodo,
+  setVisible,
+}: {
+  showToast: (severity: ToastSeverity, summary: string) => void;
+  todos: Todo[];
+  deleteTodo: (id: number) => void;
+  setVisible: (visible: boolean) => void;
+}) {
+  const itemTemplate = (todo: Todo, index: number) => {
     return (
-      <div className="col-12" key={product.id}>
+      <div className="col-12" key={todo.id}>
         <div
           className={classNames(
             'flex flex-column xl:flex-row xl:align-items-start p-4 gap-4',
@@ -57,27 +28,32 @@ export default function TodoList() {
           <img
             className="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round"
             src={`https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/QWER_Southkorean_band.png/500px-QWER_Southkorean_band.png`}
-            alt={product.name}
+            alt={todo.title}
           />
           <div className="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
             <div className="flex flex-column align-items-center sm:align-items-start gap-3">
-              <div className="text-2xl font-bold text-900">{product.name}</div>
+              <div className="text-2xl font-bold text-900">{todo.title}</div>
 
               <div className="flex align-items-center gap-3">
                 <span className="flex align-items-center gap-2">
                   <i className="pi pi-tag"></i>
-                  <span className="font-semibold">{product.category}</span>
+                  <span className="font-semibold">{todo.tag}</span>
                 </span>
               </div>
             </div>
             <div className="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
-              {/* Edit function */}
+              {/* TODO: Edit function */}
               <Button
+                onClick={() => setVisible(true)}
                 icon="pi pi-pen-to-square"
                 className="p-button-rounded"
               ></Button>
-              {/* Delete function */}
+              {/* TODO: Delete function */}
               <Button
+                onClick={() => {
+                  showToast('success', 'Deleted');
+                  deleteTodo(todo.id);
+                }}
                 icon="pi pi-trash"
                 className="p-button-rounded"
                 severity="danger"
@@ -89,11 +65,11 @@ export default function TodoList() {
     );
   };
 
-  const listTemplate = (items: Product[]) => {
-    if (!items || items.length === 0) return null;
+  const listTemplate = (todos: Todo[]) => {
+    if (!todos || todos.length === 0) return null;
 
-    let list = items.map((product, index) => {
-      return itemTemplate(product, index);
+    const list = todos.map((todo, index) => {
+      return itemTemplate(todo, index);
     });
 
     return <div className="grid grid-nogutter">{list}</div>;
@@ -101,7 +77,7 @@ export default function TodoList() {
 
   return (
     <div className="card">
-      <DataView value={products} listTemplate={listTemplate} />
+      <DataView value={todos} listTemplate={listTemplate} />
     </div>
   );
 }
