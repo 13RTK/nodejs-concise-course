@@ -9,13 +9,22 @@ export default function TodoList({
   showToast,
   todos,
   deleteTodo,
-  setVisible,
+  handleClickEditTodo,
+  searchText,
 }: {
   showToast: (severity: ToastSeverity, summary: string) => void;
   todos: Todo[];
   deleteTodo: (id: number) => void;
-  setVisible: (visible: boolean) => void;
+  handleClickEditTodo: (todo?: Todo) => void;
+  searchText: string;
 }) {
+  const searchedTodos =
+    searchText === ''
+      ? todos
+      : todos.filter((todo: Todo) =>
+          todo.title.toLowerCase().includes(searchText.toLowerCase())
+        );
+
   const itemTemplate = (todo: Todo, index: number) => {
     return (
       <div className="col-12" key={todo.id}>
@@ -42,13 +51,11 @@ export default function TodoList({
               </div>
             </div>
             <div className="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
-              {/* TODO: Edit function */}
               <Button
-                onClick={() => setVisible(true)}
+                onClick={() => handleClickEditTodo(todo)}
                 icon="pi pi-pen-to-square"
                 className="p-button-rounded"
               ></Button>
-              {/* TODO: Delete function */}
               <Button
                 onClick={() => {
                   showToast('success', 'Deleted');
@@ -77,7 +84,14 @@ export default function TodoList({
 
   return (
     <div className="card">
-      <DataView value={todos} listTemplate={listTemplate} />
+      <DataView value={searchedTodos} listTemplate={listTemplate} />
+      <div className="flex justify-content-center">
+        <Button
+          label="Add"
+          size="large"
+          onClick={() => handleClickEditTodo()}
+        />
+      </div>
     </div>
   );
 }

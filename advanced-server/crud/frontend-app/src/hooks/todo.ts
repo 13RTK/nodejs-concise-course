@@ -9,6 +9,24 @@ export function useTodo() {
     setTodos(todos.filter((todo: Todo) => todo.id !== id));
   }
 
+  function addTodo(todo: Todo) {
+    setTodos([...todos, todo]);
+  }
+
+  function updateTodo(
+    todoId: number,
+    updateTodo: {
+      title?: string;
+      tag?: string;
+    }
+  ) {
+    setTodos(
+      todos.map((todo: Todo) =>
+        todo.id === todoId ? { ...todo, ...updateTodo } : todo
+      )
+    );
+  }
+
   useEffect(() => {
     async function loadData() {
       const todosData = await getTodos();
@@ -22,5 +40,7 @@ export function useTodo() {
   return {
     todos,
     deleteTodo,
+    addTodo,
+    updateTodo,
   };
 }

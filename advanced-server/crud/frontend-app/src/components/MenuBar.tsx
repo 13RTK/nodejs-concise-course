@@ -1,7 +1,13 @@
 import { Menubar } from 'primereact/menubar';
 import { InputText } from 'primereact/inputtext';
 
-export default function MenuBar() {
+export default function MenuBar({
+  searchText,
+  setSearchText,
+}: {
+  searchText: string;
+  setSearchText: (text: string) => void;
+}) {
   const start = (
     <img
       alt="logo"
@@ -12,10 +18,11 @@ export default function MenuBar() {
   );
   const end = (
     <div className="flex align-items-center gap-2">
-      {/* TODO: Fetch data from API to handle onChange event, load spinner when loading */}
       <InputText
         placeholder="Search"
         type="text"
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
         className="w-8rem sm:w-auto"
       />
     </div>
