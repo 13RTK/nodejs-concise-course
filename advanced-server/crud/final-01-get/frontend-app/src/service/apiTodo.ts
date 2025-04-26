@@ -1,12 +1,21 @@
 import { Todo } from '../types/Todo';
 import { faker } from '@faker-js/faker';
+import { getTodo } from '../utils/todoHelper';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
 export async function getTodos(): Promise<Todo[]> {
-  // const response = await fetch(`BASE_URL$/get`);
-  const response = await fetch(BASE_URL);
-  const todoData = await response.json();
+  // const response = await fetch(BASE_URL);
+  // const todoData = await response.json();
+
+  const todoData = new Array(5).fill(0).map((_, idx) => {
+    const todo = getTodo();
+
+    return {
+      ...todo,
+      id: `${idx}-${todo.id}`,
+    };
+  });
 
   return todoData.map((todo: any) => {
     return {
