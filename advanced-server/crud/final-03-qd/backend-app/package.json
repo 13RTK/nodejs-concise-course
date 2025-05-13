@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "node server.js"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,7 @@
   "packageManager": "pnpm@10.6.5",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
   }
 }

@@ -6,7 +6,7 @@ export function useTodo() {
   const [todos, setTodos] = useState<Todo[]>([]);
 
   async function deleteTodo(id: number) {
-    // await deleteTodoById(id);
+    await deleteTodoById(id);
 
     setTodos(todos.filter((todo: Todo) => todo.id !== id));
   }

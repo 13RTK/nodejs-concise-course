@@ -27,12 +27,10 @@ export async function getTodos(): Promise<Todo[]> {
 }
 
 export async function getTodoContentById(id: number): Promise<string> {
-  // const response = await fetch(`${BASE_URL}/${id}`);
-  // const todoData = await response.json();
+  const response = await fetch(`${BASE_URL}/${id}`);
+  const todoData = await response.json();
 
-  // return todoData.content;
-
-  return faker.lorem.lines({ min: 1, max: 3 });
+  return todoData.content;
 }
 
 export async function deleteTodoById(id: number) {
