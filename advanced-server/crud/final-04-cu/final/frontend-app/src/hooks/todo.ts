@@ -18,7 +18,7 @@ export function useTodo() {
 
   async function addTodo(todo: TodoDetail) {
     // TODO: Unlock addTodo api invoke
-    // await addTodoApi(todo);
+    await addTodoApi(todo);
 
     setTodos([...todos, { id: todo.id, title: todo.title, tag: todo.tag }]);
   }
@@ -32,12 +32,12 @@ export function useTodo() {
     }
   ) {
     // TODO: Unlock updateTodo api invoke
-    // const responseMessage = await updateTodoApi({
-    //   id: todoId,
-    //   ...(updateTodo.title && { title: updateTodo.title }),
-    //   ...(updateTodo.tag && { tag: updateTodo.tag }),
-    //   ...(updateTodo.content && { content: updateTodo.content }),
-    // });
+    await updateTodoApi({
+      id: todoId,
+      ...(updateTodo.title && { title: updateTodo.title }),
+      ...(updateTodo.tag && { tag: updateTodo.tag }),
+      ...(updateTodo.content && { content: updateTodo.content }),
+    });
 
     setTodos(
       todos.map((todo: Todo) =>

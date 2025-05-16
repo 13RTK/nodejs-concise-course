@@ -49,6 +49,47 @@ app.get('/todos/delete/:todoId', async (req, res) => {
   });
 });
 
+app.get('/todos/add/:addTodo', async (req, res) => {
+  const todosData = await readFile('./data.json', 'utf-8');
+  const todos = JSON.parse(todosData);
+
+  const addTodo = req.params.addTodo;
+  const parsedAddTodo = JSON.parse(addTodo);
+
+  const updatedTodos = [...todos, parsedAddTodo];
+
+  await writeFile('./data.json', JSON.stringify(updatedTodos), 'utf-8');
+
+  return res.status(200).json({
+    message: 'Todo added successfully',
+  });
+});
+
+app.get('/todos/update/:updateTodo', async (req, res) => {
+  const todosData = await readFile('./data.json', 'utf-8');
+  const todos = JSON.parse(todosData);
+
+  const updateTodo = req.params.updateTodo;
+  const parsedUpdateTodo = JSON.parse(updateTodo);
+
+  const updatedTodos = todos.map((todo) => {
+    if (todo.id === parsedUpdateTodo.id) {
+      return {
+        ...todo,
+        ...parsedUpdateTodo,
+      };
+    }
+
+    return todo;
+  });
+
+  await writeFile('./data.json', JSON.stringify(updatedTodos), 'utf-8');
+
+  return res.status(200).json({
+    message: 'Todo updated successfully',
+  });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port http://localhost:${port}`);
 });
