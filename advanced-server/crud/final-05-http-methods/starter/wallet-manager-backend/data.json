@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "name": "Apple MacBook Pro 17inch",
+    "color": "Silver",
+    "category": "Laptop",
+    "price": 2999,
+    "description": "Apple MacBook Pro 17inch"
+  },
+  {
+    "id": 2,
+    "name": "Microsoft Surface Pro",
+    "color": "White",
+    "category": "Laptop",
+    "price": 1999,
+    "description": "Microsoft Surface Pro"
+  },
+  {
+    "id": 3,
+    "name": "Magic Mouse 2",
+    "color": "Black",
+    "category": "Accessories",
+    "price": 99,
+    "description": "Magic Mouse 2"
+  },
+  {
+    "id": 1747499011676,
+    "name": "iPad",
+    "price": 299,
+    "color": "Silver",
+    "category": "Laptop",
+    "description": "iPad from Apple"
+  }
+]
