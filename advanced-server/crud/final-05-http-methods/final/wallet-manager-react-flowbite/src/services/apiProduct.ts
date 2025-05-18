@@ -11,9 +11,13 @@ export async function getProducts(): Promise<Product[]> {
 }
 
 export async function addProduct(product: Product) {
-  console.log(JSON.stringify(product));
-
-  const response = await fetch(`${BASE_URL}/add/${JSON.stringify(product)}`);
+  const response = await fetch(`${BASE_URL}/add`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(product),
+  });
   const result = await response.json();
 
   return result;
