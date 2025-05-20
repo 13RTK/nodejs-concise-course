@@ -15,7 +15,7 @@ server.get('/products', async (_req, res) => {
   return res.status(200).json(products);
 });
 
-server.post('/products/add', async (req, res) => {
+server.post('/products', async (req, res) => {
   const productsData = await readFile('./data.json', 'utf-8');
   const products = JSON.parse(productsData);
 
