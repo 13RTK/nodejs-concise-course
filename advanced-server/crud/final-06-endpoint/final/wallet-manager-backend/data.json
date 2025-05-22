@@ -54,5 +54,21 @@
     "color": "Black",
     "category": "Accessories",
     "description": "Capture authentic sounds with the upgraded, ready-to-use wireless microphone - DJI Mic 2. With its premium features, including high-quality audio recording, intelligent noise cancelling, and support for 32-bit floating-point internal recording, our wireless microphone empowers you to produce balanced and detail-rich audio content perfect for vlogs, interviews, livestreams, and more.\n\nDJI Mic 2 features a sleek new design, elevating its aesthetics. A new charging case \ncrafted from premium metal creates a minimalist appearance, and a newly added locking latch is secure and reliable to prevent accidental drops for peace of mind during use.\n\nYou can choose between two stylish transmitter colors: Shadow Black and Pearl White. [3] The Shadow Black adds a discreet, high-tech appearance to your Mic 2 setup, while Pearl White offers an elegant alternative for those seeking a chic colorway.\n\nAlways Sound Great\nCapture brilliant audio with DJI Mic 2's omnidirectional audio recording, specifically optimized for vocals. Easily tackle multi-person scenarios for vlogs, interviews, or various other recording needs.\n\nPowerful Noise-Cancelling Performance\nThe new intelligent noise cancelling feature [4] effectively reduces environmental noise for clean, uninterrupted conversations, even in bustling urban areas or crowded rooms.\n\nTry adding the windscreen to effectively reduce wind noise in windy or fast-moving scenarios."
+  },
+  {
+    "id": 88,
+    "name": "Fantastic Granite Soap",
+    "color": "turquoise",
+    "category": "Computers",
+    "price": 473.59,
+    "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit"
+  },
+  {
+    "id": 76,
+    "name": "Modern Frozen Fish",
+    "color": "tan",
+    "category": "Games",
+    "price": 449.59,
+    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive"
   }
 ]
