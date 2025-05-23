@@ -7,7 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = 3000;
+const port = process.env.PORT;
 
 app.get('/todos', async (_req, res) => {
   const todosData = await readFile('./data.json', 'utf-8');
