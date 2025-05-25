@@ -1,24 +1,15 @@
-import express from 'express';
-import cors from 'cors';
-
 import { readFile, writeFile } from 'node:fs/promises';
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-const port = process.env.PORT;
-
-app.get('/todos', async (_req, res) => {
+export async function getTodos(_req, res) {
   const todosData = await readFile('./data.json', 'utf-8');
   const todos = JSON.parse(todosData);
 
   // console.log(todos);
 
   return res.status(200).json(todos);
-});
+}
 
-app.get('/todos/:todoId', async (req, res) => {
+export async function getTodoById(req, res) {
   const todosData = await readFile('./data.json', 'utf-8');
   const todos = JSON.parse(todosData);
 
@@ -31,10 +22,9 @@ app.get('/todos/:todoId', async (req, res) => {
   }
 
   return res.status(404).send('404 Not Found');
-});
+}
 
-// TODO: From get to delete
-app.delete('/todos/:todoId', async (req, res) => {
+export async function deleteTodoById(req, res) {
   const todosData = await readFile('./data.json', 'utf-8');
   const todos = JSON.parse(todosData);
 
@@ -46,10 +36,9 @@ app.delete('/todos/:todoId', async (req, res) => {
   return res.status(200).json({
     message: 'Todo deleted successfully',
   });
-});
+}
 
-// TODO: From get to post(A little trap here, be careful ^_^)
-app.post('/todos', async (req, res) => {
+export async function createTodo(req, res) {
   const todosData = await readFile('./data.json', 'utf-8');
   const todos = JSON.parse(todosData);
 
@@ -62,10 +51,9 @@ app.post('/todos', async (req, res) => {
   return res.status(200).json({
     message: 'Todo added successfully',
   });
-});
+}
 
-// TODO: From get to patch
-app.patch('/todos', async (req, res) => {
+export async function updateTodo(req, res) {
   const todosData = await readFile('./data.json', 'utf-8');
   const todos = JSON.parse(todosData);
 
@@ -87,8 +75,4 @@ app.patch('/todos', async (req, res) => {
   return res.status(200).json({
     message: 'Todo updated successfully',
   });
-});
-
-app.listen(port, () => {
-  console.log(`Example app listening on port http://localhost:${port}`);
-});
+}

@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "dotenvx run -- nodemon server.js"
+    "dev": "dotenvx run -- nodemon ./src/server.js"
   },
   "keywords": [],
   "author": "",
