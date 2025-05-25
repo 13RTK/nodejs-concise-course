@@ -1,0 +1,21 @@
+[
+  { "id": 1, "title": "Hina", "content": "Hina is youngest", "tag": "daily" },
+  {
+    "id": 2,
+    "title": "siyeon",
+    "content": "Siyeon is the most hard member",
+    "tag": "work"
+  },
+  {
+    "id": 1747394632938,
+    "title": "chodan",
+    "tag": "Drummer",
+    "content": "The leader of QWER"
+  },
+  {
+    "id": 1747402816240,
+    "title": "magenta",
+    "tag": "base",
+    "content": "Lee Ahhee (이아희) or known by her stage name Magenta (마젠타) is the second revealed member of the South Korean girl band QWER. She is the bassist of the band."
+  }
+]
