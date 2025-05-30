@@ -1,4 +1,3 @@
-import { readFile, writeFile } from 'node:fs/promises';
 import {
   getAllTodos,
   getTodoById as getTodoByIdApi,
