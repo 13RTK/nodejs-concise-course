@@ -5,10 +5,17 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "seed": "dotenvx run -- node ./src/scripts/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "packageManager": "pnpm@10.6.5"
+  "packageManager": "pnpm@10.6.5",
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.44.1",
+    "pg": "^8.16.0",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.37.7"
+  }
 }
