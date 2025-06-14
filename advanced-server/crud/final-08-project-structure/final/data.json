@@ -1,5 +1,10 @@
 [
-  { "id": 1, "title": "Hina", "content": "Hina is youngest", "tag": "daily" },
+  {
+    "id": 1,
+    "title": "Hina",
+    "content": "Hina is Tiktok freelancer",
+    "tag": "daily"
+  },
   {
     "id": 2,
     "title": "siyeon",
