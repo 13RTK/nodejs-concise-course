@@ -10,10 +10,14 @@ export async function getTodos(_req, res) {
 }
 
 export async function getTodoById(req, res) {
+  const todoId = req.params.todoId;
+
+  if (!todoId) {
+    return res.status(400).send('todoId is required');
+  }
+
   const todosData = await readFile('./data.json', 'utf-8');
   const todos = JSON.parse(todosData);
-
-  const todoId = req.params.todoId;
 
   const todo = todos.find((todo) => todo.id === Number(todoId));
 
@@ -25,10 +29,15 @@ export async function getTodoById(req, res) {
 }
 
 export async function deleteTodoById(req, res) {
+  const todoId = req.params.todoId;
+
+  if (!todoId) {
+    return res.status(400).send('todoId is required');
+  }
+
   const todosData = await readFile('./data.json', 'utf-8');
   const todos = JSON.parse(todosData);
 
-  const todoId = req.params.todoId;
   const filteredTodos = todos.filter((todo) => todo.id !== Number(todoId));
 
   await writeFile('./data.json', JSON.stringify(filteredTodos), 'utf-8');
@@ -39,10 +48,13 @@ export async function deleteTodoById(req, res) {
 }
 
 export async function createTodo(req, res) {
+  const addTodo = req.body;
+  if (!addTodo) {
+    return res.status(400).send('400 Bad Request');
+  }
+
   const todosData = await readFile('./data.json', 'utf-8');
   const todos = JSON.parse(todosData);
-
-  const addTodo = req.body;
 
   const updatedTodos = [...todos, addTodo];
 
@@ -54,10 +66,14 @@ export async function createTodo(req, res) {
 }
 
 export async function updateTodo(req, res) {
+  const updateTodo = req.body;
+
+  if (!updateTodo) {
+    return res.status(400).send('400 Bad Request');
+  }
+
   const todosData = await readFile('./data.json', 'utf-8');
   const todos = JSON.parse(todosData);
-
-  const updateTodo = req.body;
 
   const updatedTodos = todos.map((todo) => {
     if (todo.id === updateTodo.id) {
