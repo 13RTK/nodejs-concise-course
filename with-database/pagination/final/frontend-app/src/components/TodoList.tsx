@@ -116,15 +116,15 @@ export default function TodoList({
       {!isTodoLoading && isTodoLoadError && <div>Something went wrong</div>}
       {!isTodoLoading && !isTodoLoadError && (
         <>
-          {/* <DataView value={todos} listTemplate={listTemplate} /> */}
-          <DataView
+          <DataView value={filteredTodos} listTemplate={listTemplate} />
+          {/* <DataView
             value={filteredTodos}
             listTemplate={listTemplate}
             paginator
             rows={5}
-          />
+          /> */}
           {/* TODO: Add manual paginator */}
-          {/* <AppPaginator /> */}
+          <AppPaginator />
         </>
       )}
       <div className="flex justify-content-center">

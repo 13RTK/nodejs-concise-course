@@ -4,10 +4,16 @@ import {
   deleteTodoById as deleteTodoByIdApi,
   createTodo as createTodoApi,
   updateTodo as updateTodoApi,
+  countTodo as countTodoApi,
 } from '../services/todoService.js';
 
-export async function getTodos(_req, res) {
-  const todos = await getAllTodos();
+export async function getTodos(req, res) {
+  const page = req.query.page;
+  const limit = req.query.limit;
+
+  const offset = (page - 1) * limit;
+
+  const todos = await getAllTodos(offset, limit);
 
   return res.status(200).json(todos);
 }
@@ -63,5 +69,13 @@ export async function updateTodo(req, res) {
   return res.status(200).json({
     message: 'Todo updated successfully',
     data: updatedTodo,
+  });
+}
+
+export async function countTodo(_req, res) {
+  const todoCount = await countTodoApi();
+
+  return res.status(200).json({
+    count: todoCount,
   });
 }

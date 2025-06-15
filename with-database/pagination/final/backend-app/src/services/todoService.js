@@ -1,7 +1,10 @@
 import Todo from '../models/todoModel.js';
 
-export async function getAllTodos() {
-  const todos = await Todo.findAll();
+export async function getAllTodos(offset, limit = 5) {
+  const todos = await Todo.findAll({
+    offset,
+    limit,
+  });
 
   return todos;
 }
@@ -32,4 +35,9 @@ export async function updateTodo(updateTodo) {
       id: updateTodo.id,
     },
   });
+}
+
+// TODO: Add some parameters
+export async function countTodo() {
+  return await Todo.count();
 }

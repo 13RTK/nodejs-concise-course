@@ -5,25 +5,18 @@ import { currentPageAtom } from '../../atoms/pagination.ts';
 import { searchTextAtom } from '../../atoms/search.ts';
 
 export function useGetTodo() {
-  // const currentPage = useAtomValue(currentPageAtom);
-  // const searchText = useAtomValue(searchTextAtom);
+  const currentPage = useAtomValue(currentPageAtom);
+  const searchText = useAtomValue(searchTextAtom);
 
   // TODO: Enable pagination
-  // const {
-  //   data: todos,
-  //   isLoading: isTodoGetting,
-  //   isError: isTodoLoadError,
-  // } = useQuery({
-  //   queryKey: ["todos", currentPage, searchText],
-  //   queryFn: () => getTodos(currentPage, searchText),
-  // });
   const {
     data: todos,
     isLoading: isTodoGetting,
     isError: isTodoLoadError,
   } = useQuery({
-    queryKey: ['todos'],
-    queryFn: getTodos,
+    queryKey: ['todos', currentPage, searchText],
+    // queryFn: () => getTodos(currentPage, searchText),
+    queryFn: () => getTodos(currentPage),
   });
 
   return {

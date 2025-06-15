@@ -4,28 +4,16 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const PAGE_SIZE = import.meta.env.VITE_PAGE_SIZE;
 
 // TODO: Enable pagination
-// export async function getTodos(
-//   currentPage: number = 1,
-//   searchText: string = ''
-// ): Promise<Todo[]> {
-//   const searchTextParam = searchText ? `&search=${searchText}` : '';
+export async function getTodos(
+  currentPage: number = 1
+  // searchText: string = ''
+): Promise<Todo[]> {
+  // const searchTextParam = searchText ? `&search=${searchText}` : '';
 
-//   const response = await fetch(
-//     `${BASE_URL}?page=${currentPage}&limit=${PAGE_SIZE}${searchTextParam}`
-//   );
-//   const todoData = await response.json();
-
-//   return todoData.map((todo: any) => {
-//     return {
-//       id: todo.id,
-//       title: todo.title,
-//       tag: todo.tag,
-//     };
-//   });
-// }
-
-export async function getTodos(): Promise<Todo[]> {
-  const response = await fetch(BASE_URL);
+  const response = await fetch(
+    // `${BASE_URL}?page=${currentPage}&limit=${PAGE_SIZE}${searchTextParam}`
+    `${BASE_URL}?page=${currentPage}&limit=${PAGE_SIZE}`
+  );
   const todoData = await response.json();
 
   return todoData.map((todo: any) => {
@@ -36,6 +24,19 @@ export async function getTodos(): Promise<Todo[]> {
     };
   });
 }
+
+// export async function getTodos(): Promise<Todo[]> {
+//   const response = await fetch(BASE_URL);
+//   const todoData = await response.json();
+
+//   return todoData.map((todo: any) => {
+//     return {
+//       id: todo.id,
+//       title: todo.title,
+//       tag: todo.tag,
+//     };
+//   });
+// }
 
 export async function getTodoContentById(id: number): Promise<string> {
   const response = await fetch(`${BASE_URL}/${id}`);
