@@ -38,12 +38,6 @@ export default function TodoList({
     isTodoContentGetting,
   } = useTodoList(todoQueryClient, showToast);
 
-  const searchText = useAtomValue(searchTextAtom);
-  // TODO: Filter todo list by refetch
-  const filteredTodos = todos?.filter((todo) => {
-    return todo.title.toLowerCase().includes(searchText.toLowerCase());
-  });
-
   const itemTemplate = (todo: Todo, index: number) => {
     return (
       <div className="col-12" key={todo.id}>
@@ -116,14 +110,8 @@ export default function TodoList({
       {!isTodoLoading && isTodoLoadError && <div>Something went wrong</div>}
       {!isTodoLoading && !isTodoLoadError && (
         <>
-          <DataView value={filteredTodos} listTemplate={listTemplate} />
-          {/* <DataView
-            value={filteredTodos}
-            listTemplate={listTemplate}
-            paginator
-            rows={5}
-          /> */}
-          {/* TODO: Add manual paginator */}
+          <DataView value={todos} listTemplate={listTemplate} />
+
           <AppPaginator />
         </>
       )}

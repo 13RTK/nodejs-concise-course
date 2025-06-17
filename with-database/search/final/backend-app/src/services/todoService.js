@@ -1,9 +1,23 @@
+import { Op } from 'sequelize';
 import Todo from '../models/todoModel.js';
 
-export async function getAllTodos(offset, limit = 5) {
+export async function getAllTodos(offset, limit = 5, search) {
+  let titleFilter = {};
+
+  if (search) {
+    titleFilter = {
+      where: {
+        title: {
+          [Op.like]: `%${search}%`,
+        },
+      },
+    };
+  }
+
   const todos = await Todo.findAll({
     offset,
     limit,
+    ...titleFilter,
   });
 
   return todos;
@@ -37,7 +51,18 @@ export async function updateTodo(updateTodo) {
   });
 }
 
-// TODO: Add some parameters
-export async function countTodo() {
-  return await Todo.count();
+export async function countTodo(search) {
+  let titleFilter = {};
+
+  if (search) {
+    titleFilter = {
+      where: {
+        title: {
+          [Op.like]: `%${search}%`,
+        },
+      },
+    };
+  }
+
+  return await Todo.count(titleFilter);
 }

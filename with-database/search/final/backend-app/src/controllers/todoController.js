@@ -8,12 +8,13 @@ import {
 } from '../services/todoService.js';
 
 export async function getTodos(req, res) {
-  const page = req.query.page;
-  const limit = req.query.limit;
+  const page = req.query.page || 1;
+  const limit = req.query.limit || 5;
+  const search = req.query.search || '';
 
   const offset = (page - 1) * limit;
 
-  const todos = await getAllTodos(offset, limit);
+  const todos = await getAllTodos(offset, limit, search);
 
   return res.status(200).json(todos);
 }
@@ -72,8 +73,10 @@ export async function updateTodo(req, res) {
   });
 }
 
-export async function countTodo(_req, res) {
-  const todoCount = await countTodoApi();
+export async function countTodo(req, res) {
+  const search = req.query.search;
+
+  const todoCount = await countTodoApi(search);
 
   return res.status(200).json({
     count: todoCount,
