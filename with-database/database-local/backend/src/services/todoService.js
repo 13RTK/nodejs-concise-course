@@ -1,16 +1,15 @@
 import { Op } from 'sequelize';
 import Todo from '../models/todoModel.js';
+import sequelize from '../utils/dbHelper.js';
 
 export async function getAllTodos(offset, limit = 5, search) {
   let titleFilter = {};
 
   if (search) {
     titleFilter = {
-      where: {
-        title: {
-          [Op.like]: `%${search}%`,
-        },
-      },
+      where: sequelize.where(sequelize.fn('lower', sequelize.col('title')), {
+        [Op.like]: `%${search.toLowerCase()}%`,
+      }),
     };
   }
 
@@ -56,11 +55,9 @@ export async function countTodo(search) {
 
   if (search) {
     titleFilter = {
-      where: {
-        title: {
-          [Op.like]: `%${search}%`,
-        },
-      },
+      where: sequelize.where(sequelize.fn('lower', sequelize.col('title')), {
+        [Op.like]: `%${search.toLowerCase()}%`,
+      }),
     };
   }
 
