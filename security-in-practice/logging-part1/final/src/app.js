@@ -1,7 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import todoRouter from './routes/todoRoute.js';
+import morgan from 'morgan';
 import { rateLimit } from 'express-rate-limit';
+
+import todoRouter from './routes/todoRoute.js';
 
 const limiter = rateLimit({
   windowMs: 1000, // 1 second
@@ -16,6 +18,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(limiter);
+app.use(morgan('tiny'));
 
 app.use('/v1', todoRouter);
 
