@@ -6,7 +6,6 @@ import {
   updateTodo as updateTodoApi,
   countTodo as countTodoApi,
 } from '../services/todoService.js';
-import logger from '../utils/loggerHelper.js';
 
 export async function getTodos(req, res) {
   const page = req.query.page || 1;
@@ -15,13 +14,8 @@ export async function getTodos(req, res) {
 
   const offset = (page - 1) * limit;
 
-  logger.info(
-    `getTodos request: page: ${page}, limit: ${limit}, search: ${search}`
-  );
-
   const todos = await getAllTodos(offset, limit, search);
 
-  logger.info(`getTodos response: ${JSON.stringify(todos, null, 2)}`);
   return res.status(200).json(todos);
 }
 
