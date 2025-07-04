@@ -7,6 +7,7 @@ import {
   countTodo as countTodoApi,
 } from '../services/todoService.js';
 
+// Missing next function as a middleware
 export async function getTodos(req, res) {
   const page = req.query.page || 1;
   const limit = req.query.limit || 5;

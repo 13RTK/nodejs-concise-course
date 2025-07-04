@@ -18,7 +18,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(limiter);
+
 app.use(pinoHttpMiddleware);
+
+app.use((_req, _res, next) => {
+  console.log('Request Time: ', new Date());
+
+  next();
+});
 
 app.use('/v1', todoRouter);
 
