@@ -19,13 +19,21 @@ app.use(cors());
 app.use(express.json());
 app.use(limiter);
 
-app.use(pinoHttpMiddleware);
+// Response will send to the client without any save
+app.use((_req, res, next) => {
+  const originJson = res.json;
 
-app.use((_req, _res, next) => {
-  console.log('Request Time: ', new Date());
+  res.json = function (body) {
+    res.body = body;
+    originJson.call(this, body);
+
+    return this;
+  };
 
   next();
 });
+
+app.use(pinoHttpMiddleware);
 
 app.use('/v1', todoRouter);
 
