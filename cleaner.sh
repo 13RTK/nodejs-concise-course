@@ -3,3 +3,6 @@ find . -name node_modules -exec rm -rf {} \;
 
 # Find out all the pnpm-lock.yaml and delete them
 find . -name pnpm-lock.yaml -exec rm -rf {} \;
+
+# Find out all the .log files and delete them
+find . -name "*.log" -exec rm -rf {} \;
