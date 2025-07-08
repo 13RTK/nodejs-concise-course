@@ -34,12 +34,12 @@ export const logger = pino(transport);
 export const pinoHttpMiddleware = pinoHttp({
   logger,
   // Execute before the body data parsed
-  serializers: {
-    res(res) {
-      res.body = res.raw.body;
-      return res;
-    },
-  },
+  // serializers: {
+  //   res(res) {
+  //     res.body = res.raw.body;
+  //     return res;
+  //   },
+  // },
 
   customLogLevel: function (_req, res, err) {
     if (res.statusCode >= 400 && res.statusCode < 500) {

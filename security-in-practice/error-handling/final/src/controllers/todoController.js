@@ -6,6 +6,7 @@ import {
   updateTodo as updateTodoApi,
   countTodo as countTodoApi,
 } from '../services/todoService.js';
+import AppError from '../utils/AppError.js';
 
 // Missing next function as a middleware
 export async function getTodos(req, res) {
@@ -55,12 +56,16 @@ export async function createTodo(req, res) {
     return res.status(400).send('Bad request');
   }
 
-  const addedTodo = await createTodoApi(addTodo);
+  try {
+    const addedTodo = await createTodoApi(addTodo);
 
-  return res.status(200).json({
-    message: 'Todo added successfully',
-    data: addedTodo,
-  });
+    return res.status(200).json({
+      message: 'Todo added successfully',
+      data: addedTodo,
+    });
+  } catch (error) {
+    throw new AppError(`The id ${addTodo.id} already exists`, 400, error.name);
+  }
 }
 
 export async function updateTodo(req, res) {

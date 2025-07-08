@@ -19,22 +19,19 @@ app.use(cors());
 app.use(express.json());
 app.use(limiter);
 
-// Response will send to the client without any save
-app.use((_req, res, next) => {
-  const originJson = res.json;
-
-  res.json = function (body) {
-    res.body = body;
-    originJson.call(this, body);
-
-    return this;
-  };
-
-  next();
-});
-
-app.use(pinoHttpMiddleware);
+// app.use(pinoHttpMiddleware);
 
 app.use('/v1', todoRouter);
+
+// global error handler
+app.use((err, _req, res, _next) => {
+  const {
+    name = 'Unknown Error',
+    message = 'Something broke!',
+    statusCode = 500,
+  } = err;
+
+  res.status(statusCode).send(message);
+});
 
 export default app;
