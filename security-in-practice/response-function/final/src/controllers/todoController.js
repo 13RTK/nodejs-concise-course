@@ -6,9 +6,12 @@ import {
   updateTodo as updateTodoApi,
   countTodo as countTodoApi,
 } from '../services/todoService.js';
+import {
+  sendNotFoundResponse,
+  sendSuccessResponse,
+} from '../utils/responseHelper.js';
 import AppError from '../utils/AppError.js';
 
-// Missing next function as a middleware
 export async function getTodos(req, res) {
   const page = req.query.page || 1;
   const limit = req.query.limit || 5;
@@ -18,51 +21,51 @@ export async function getTodos(req, res) {
 
   const todos = await getAllTodos(offset, limit, search);
 
-  return res.status(200).json(todos);
+  return sendSuccessResponse(res, todos);
 }
 
 export async function getTodoById(req, res) {
-  if (!req.params.todoId) {
-    return res.status(400).send('todoId is required');
-  }
+  // If the todoId is missing, the request will be process by getTodos
+  // if (!req.params.todoId) {
+  //   return res.status(400).send('todoId is required');
+  // }
 
   const todo = await getTodoByIdApi(req.params.todoId);
 
   if (todo) {
-    return res.status(200).json(todo);
+    return sendSuccessResponse(res, todo);
   }
 
-  return res.status(404).send('404 Not Found');
+  return sendNotFoundResponse(res);
 }
 
 export async function deleteTodoById(req, res) {
   const todoId = req.params.todoId;
 
   if (!todoId) {
-    return res.status(400).send('todoId is required');
+    throw new AppError(`The todoId is required`, 400, 'Bad request');
   }
 
-  await deleteTodoByIdApi(todoId);
+  const deletedTodoNumber = await deleteTodoByIdApi(todoId);
 
-  return res.status(200).json({
-    message: 'Todo deleted successfully',
-  });
+  if (!deletedTodoNumber) {
+    return sendNotFoundResponse(res);
+  }
+
+  return sendSuccessResponse(res, deletedTodoNumber);
 }
 
 export async function createTodo(req, res) {
   const addTodo = req.body;
 
   if (!addTodo) {
-    return res.status(400).send('Bad request');
+    throw new AppError(`The todo is required`, 400, 'Bad request');
   }
 
   try {
     const addedTodo = await createTodoApi(addTodo);
 
-    return res.status(200).json({
-      message: 'Todo added successfully',
-      data: addedTodo,
-    });
+    return sendSuccessResponse(res, addedTodo);
   } catch (error) {
     throw new AppError(`The id ${addTodo.id} already exists`, 400, error.name);
   }
@@ -71,12 +74,13 @@ export async function createTodo(req, res) {
 export async function updateTodo(req, res) {
   const updateTodo = req.body;
 
-  const updatedTodo = await updateTodoApi(updateTodo);
+  const updatedTodoNumber = await updateTodoApi(updateTodo);
 
-  return res.status(200).json({
-    message: 'Todo updated successfully',
-    data: updatedTodo,
-  });
+  if (!updatedTodoNumber) {
+    return sendNotFoundResponse(res);
+  }
+
+  return sendSuccessResponse(res, updatedTodoNumber);
 }
 
 export async function countTodo(req, res) {
@@ -84,7 +88,5 @@ export async function countTodo(req, res) {
 
   const todoCount = await countTodoApi(search);
 
-  return res.status(200).json({
-    count: todoCount,
-  });
+  return sendSuccessResponse(res, todoCount);
 }
