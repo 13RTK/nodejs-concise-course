@@ -1,0 +1,31 @@
+{
+  "name": "final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "dotenvx run -- nodemon ./src/server.js | pino-pretty",
+    "seed": "dotenvx run -- node ./src/scripts/seed.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.12.3",
+  "dependencies": {
+    "@dotenvx/dotenvx": "^1.44.1",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.1",
+    "mysql2": "^3.14.1",
+    "nodemon": "^3.1.10",
+    "pg": "^8.16.0",
+    "pg-hstore": "^2.3.4",
+    "pino": "^9.7.0",
+    "pino-http": "^10.5.0",
+    "pino-pretty": "^13.0.0",
+    "sequelize": "^6.37.7"
+  }
+}
