@@ -7,5 +7,7 @@ export default function (err, _req, res, _next) {
     statusCode = 500,
   } = err;
 
+  console.log('global: ', name, message, statusCode);
+
   return sendJsonResponse(res, statusCode, message);
 }

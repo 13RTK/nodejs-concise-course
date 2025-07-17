@@ -19,7 +19,7 @@ app.use(rateLimiter);
 
 app.use('/v1', userRouter);
 
-app.use((req, res, next) => {
+app.use(async (req, res, next) => {
   const authorization = req.headers.authorization;
   if (!authorization) {
     return res.status(401).json({
@@ -28,7 +28,7 @@ app.use((req, res, next) => {
   }
 
   const token = authorization.split(' ')[1];
-  verifyToken(token);
+  await verifyToken(token);
 
   next();
 });

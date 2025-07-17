@@ -34,7 +34,7 @@ export async function login(req, res) {
     });
   }
 
-  const token = generateToken({ email });
+  const token = await generateToken({ email });
 
   return sendSuccessResponse(res, token);
 }
