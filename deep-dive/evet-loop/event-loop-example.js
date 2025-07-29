@@ -16,3 +16,14 @@ console.log('Other things');
 // });
 
 // console.log('Other things');
+
+// 3. Microtask
+// setTimeout(() => {
+//   console.log('timeout');
+// }, 10);
+
+// Promise.resolve().then(() => console.log('Promise'));
+
+// console.log('Other things');
+
+// 4. Special case(I/O)
