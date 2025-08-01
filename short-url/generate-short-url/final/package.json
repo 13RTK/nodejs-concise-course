@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "dev": "dotenvx run -- nodemon ./src/server.js",
     "dev:database-connection": "dotenvx run -- node ./src/utils/dbHelper.js",
     "seed": "dotenvx run -- node ./src/scripts/seed.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,9 +16,13 @@
   "packageManager": "pnpm@10.13.1",
   "dependencies": {
     "@dotenvx/dotenvx": "^1.48.4",
+    "cors": "^2.8.5",
+    "crypto-random-string": "^5.0.0",
     "express": "^5.1.0",
+    "nodemon": "^3.1.10",
     "pg": "^8.16.3",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.37.7"
+    "sequelize": "^6.37.7",
+    "validator": "^13.15.15"
   }
 }
