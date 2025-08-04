@@ -1,6 +1,7 @@
 import express from 'express';
 import urlRecordRouter from './routes/urlRecordRoute.js';
 import cors from 'cors';
+import urlRedirectRouter from './routes/urlRedirectRoute.js';
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.use(cors());
 // TODO: Logging
 
 app.use('/v1', urlRecordRouter);
+app.use('/v1', urlRedirectRouter);
 
 // TODO: Global error handler
 
