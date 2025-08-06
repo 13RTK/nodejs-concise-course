@@ -1,0 +1,274 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "URL Shortener",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [],
+  "paths": {
+    "/urlRecord": {
+      "post": {
+        "summary": "Create URL Record",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "originURL": "https://github.com/13RTK"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "origin url exists"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "originURL": {
+                          "type": "string"
+                        },
+                        "shortURL": {
+                          "type": "string"
+                        },
+                        "urlCode": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string"
+                        },
+                        "updatedAt": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "originURL",
+                        "shortURL",
+                        "urlCode",
+                        "createdAt",
+                        "updatedAt"
+                      ],
+                      "description": "URL record object"
+                    }
+                  },
+                  "required": [
+                    "message",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "message": "Origin URL already exists",
+                  "data": {
+                    "id": "1754062865870",
+                    "originURL": "https://react.dev/reference/rsc/server-components#async-components-with-server-components",
+                    "shortURL": "https://localhost:5432/rxQkAp",
+                    "urlCode": "rxQkAp",
+                    "createdAt": "2025-08-01T15:41:05.871Z",
+                    "updatedAt": "2025-08-01T15:41:05.871Z"
+                  }
+                }
+              }
+            },
+            "headers": {}
+          },
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Successfully created"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "originURL": {
+                          "type": "string"
+                        },
+                        "shortURL": {
+                          "type": "string"
+                        },
+                        "urlCode": {
+                          "type": "string"
+                        },
+                        "updatedAt": {
+                          "type": "string"
+                        },
+                        "createdAt": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "originURL",
+                        "shortURL",
+                        "urlCode",
+                        "updatedAt",
+                        "createdAt"
+                      ],
+                      "description": "URL record object"
+                    }
+                  },
+                  "required": [
+                    "message",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "message": "URL record created successfully",
+                  "data": {
+                    "id": "1754475631461",
+                    "originURL": "https://github.com/13RTK",
+                    "shortURL": "https://localhost:5432/LMjRyk",
+                    "urlCode": "LMjRyk",
+                    "updatedAt": "2025-08-06T10:20:31.462Z",
+                    "createdAt": "2025-08-06T10:20:31.462Z"
+                  }
+                }
+              }
+            },
+            "headers": {}
+          },
+          "400": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  },
+                  "required": [
+                    "message"
+                  ]
+                },
+                "example": {
+                  "message": "URL code already exists"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/{urlCode}": {
+      "get": {
+        "summary": "Get origin URL",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "urlCode",
+            "in": "path",
+            "description": "The unique url code to identify short URL",
+            "required": true,
+            "example": "rxQkAp",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Response message"
+                    },
+                    "data": {
+                      "type": "string",
+                      "description": "The origin URL"
+                    }
+                  },
+                  "required": [
+                    "message",
+                    "data"
+                  ]
+                },
+                "example": {
+                  "message": "Success",
+                  "data": "https://react.dev/reference/rsc/server-components#async-components-with-server-components"
+                }
+              }
+            },
+            "headers": {}
+          },
+          "404": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "description": "Error message"
+                    }
+                  },
+                  "required": [
+                    "message"
+                  ]
+                },
+                "example": {
+                  "message": "URL code not found"
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "webhooks": {},
+  "components": {
+    "schemas": {},
+    "securitySchemes": {}
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/v1",
+      "description": "开发环境"
+    }
+  ],
+  "security": []
+}
