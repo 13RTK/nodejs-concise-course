@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form';
 import FormError from '../../ui/FormError';
 import validator from 'validator';
 import { useMutation } from '@tanstack/react-query';
-import { getOriginURL as getOriginURLApi } from '../../services/apiURL';
+import { createShortURL as createShortURLApi } from '../../services/apiURL';
 import { toast } from 'sonner';
 import { useSetAtom } from 'jotai';
 import {
@@ -26,10 +26,10 @@ function AppForm() {
   const setIsURLShortSuccess = useSetAtom(isURLShortSuccessAtom);
   const setShortURL = useSetAtom(shortURLAtom);
 
-  const { mutate: getOriginURL, isPending: isCreating } = useMutation({
+  const { mutate: createShortURL, isPending: isCreating } = useMutation({
     mutationKey: ['getOriginURL'],
     mutationFn: (data: Inputs) =>
-      getOriginURLApi(data.originURL, data.urlCode || ''),
+      createShortURLApi(data.originURL, data.urlCode || ''),
     onError: (err) => {
       toast.error(err.message);
     },
@@ -46,7 +46,7 @@ function AppForm() {
   function onSubmit(data: Inputs) {
     setIsURLShortSuccess(false);
     setShortURL('');
-    getOriginURL(data);
+    createShortURL(data);
   }
 
   return (
@@ -57,9 +57,8 @@ function AppForm() {
       {/* Origin URL */}
       <fieldset className="fieldset flex justify-center">
         <legend className="fieldset-legend text-2xl">Your Origin URL</legend>
-        <input
-          type="text"
-          className={`input input-lg sm:w-1/2 w-full ${
+        <textarea
+          className={`textarea textarea-lg h-48 sm:w-1/2 w-full ${
             errors.originURL ? 'input-error' : ''
           }`}
           placeholder="The URL you want to shorten"

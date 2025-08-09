@@ -1,7 +1,9 @@
 import { createBrowserRouter } from 'react-router';
+
 import RootLayout from './ui/RootLayout';
+
 import Home from './pages/Home';
-import RedirectProcess from './pages/RedirectProcess';
+import Redirect from './pages/Redirect';
 
 const router = createBrowserRouter([
   {
@@ -11,7 +13,7 @@ const router = createBrowserRouter([
       { index: true, Component: Home },
       {
         path: '/:urlCode',
-        Component: RedirectProcess,
+        Component: Redirect,
       },
     ],
   },
