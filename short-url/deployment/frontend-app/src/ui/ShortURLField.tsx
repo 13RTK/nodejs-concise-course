@@ -1,5 +1,5 @@
 import { useAtomValue } from 'jotai';
-import { shortURLAtom } from '../atoms/urlShortStatusAtom';
+import { shortURLAtom } from '../atoms/urlShortAtom';
 import { toast } from 'sonner';
 
 function ShortURLField() {

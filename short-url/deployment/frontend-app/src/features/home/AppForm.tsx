@@ -1,53 +1,18 @@
 import { useForm } from 'react-hook-form';
-import FormError from '../../ui/FormError';
 import validator from 'validator';
-import { useMutation } from '@tanstack/react-query';
-import { createShortURL as createShortURLApi } from '../../services/apiURL';
-import { toast } from 'sonner';
-import { useSetAtom } from 'jotai';
-import {
-  isURLShortSuccessAtom,
-  shortURLAtom,
-} from '../../atoms/urlShortStatusAtom';
-import { type URLRecord } from '../../types/APIResponse';
 
-type Inputs = {
-  originURL: string;
-  urlCode: string;
-};
+import FormError from '../../ui/FormError';
+import { useGenerateForm } from '../../hooks/useGenerateForm';
+import type { AppFormInput } from '../../types/AppFormInput';
 
 function AppForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<AppFormInput>();
 
-  const setIsURLShortSuccess = useSetAtom(isURLShortSuccessAtom);
-  const setShortURL = useSetAtom(shortURLAtom);
-
-  const { mutate: createShortURL, isPending: isCreating } = useMutation({
-    mutationKey: ['getOriginURL'],
-    mutationFn: (data: Inputs) =>
-      createShortURLApi(data.originURL, data.urlCode || ''),
-    onError: (err) => {
-      toast.error(err.message);
-    },
-    onSuccess: (data) => {
-      const urlRecord = data.data as URLRecord;
-
-      setShortURL(urlRecord.shortURL);
-      setIsURLShortSuccess(true);
-
-      toast.success(data.message || 'Short URL created successfully');
-    },
-  });
-
-  function onSubmit(data: Inputs) {
-    setIsURLShortSuccess(false);
-    setShortURL('');
-    createShortURL(data);
-  }
+  const { isCreating, onSubmit } = useGenerateForm();
 
   return (
     <form
