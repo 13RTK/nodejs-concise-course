@@ -1,0 +1,6 @@
+@import 'tailwindcss';
+@plugin "daisyui";
+
+:root {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
