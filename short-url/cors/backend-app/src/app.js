@@ -9,12 +9,16 @@ import urlRecordRouter from './routes/urlRecordRoute.js';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from './swagger.json' with {type: 'json'};
 
+const PROJECT_URL = process.env.PROJECT_URL;
+
 const app = express();
 
 // TODO: Auth
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: PROJECT_URL
+}));
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(rateLimiter);
